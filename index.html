@@ -1,14 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <link href="style.csss" rel="stylesheet">
-</head>
-      <canvas id="hero-lightpass"></canvas>
-      <script defer src="app.js"></script>
-</body>
-
-</html>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>scroll to animate</title> </head> <body> <canvas id="hero-lightpass"></canvas> <script> "use strict";var html=document.documentElement,canvas=document.getElementById("hero-lightpass"),context=canvas.getContext("2d"),frameCount=30,currentFrame=function(e){return"./image-layers/".concat(e.toString().padStart(4,"0"),".jpg")},preloadImages=function(){for(var e=1;e<frameCount;e++){(new Image).src=currentFrame(e)}},img=new Image;img.src=currentFrame(1),canvas.width=1158,canvas.height=770,img.onload=function(){context.drawImage(img,0,0)};var updateImage=function(e){img.src=currentFrame(e),context.drawImage(img,0,0)};window.addEventListener("scroll",function(){var e=html.scrollTop/(html.scrollHeight-window.innerHeight),t=Math.min(frameCount-1,Math.ceil(e*frameCount));requestAnimationFrame(function(){return updateImage(t+1)})}),preloadImages(); </script> </body> </html>
